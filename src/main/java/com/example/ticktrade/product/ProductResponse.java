@@ -14,7 +14,8 @@ public record ProductResponse(
         String imageUrl,
         Instant createdAt,
         Instant updatedAt,
-        Instant deletedAt
+        Instant deletedAt,
+        Boolean isPublished
 ) {
 
 

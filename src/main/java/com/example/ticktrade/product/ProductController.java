@@ -46,6 +46,13 @@ public class ProductController {
             @RequestBody NewProductRequest request){
          productService.updateProduct(id,request);
     }
+    @PatchMapping("/{id}/isPublished")
+    public void updatePublishedStatus(
+            @PathVariable UUID id,
+            @RequestBody PublishedRequest request
+    ) {
+        productService.updatePublishedStatus(id, request.isPublished());
+    }
 
 
 

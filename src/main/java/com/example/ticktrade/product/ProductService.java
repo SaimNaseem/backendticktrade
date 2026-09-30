@@ -7,6 +7,9 @@ import org.springframework.boot.context.config.ConfigDataResourceNotFoundExcepti
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 import java.util.Optional;
@@ -62,7 +65,8 @@ public class ProductService{
                 p.getImageUrl(),
                 p.getCreatedAt(),
                 p.getUpdatedAt(),
-                p.getDeletedAt()
+                p.getDeletedAt(),
+                p.getPublished()
         );
     }
 
@@ -74,7 +78,8 @@ public class ProductService{
                 product.description(),
                 product.price(),
                 product.imageUrl(),
-                product.stockLevel()
+                product.stockLevel(),
+                product.isPublished()
                 );
 //        p.setName(product.name());
 //        p.setDescription(product.description());
@@ -114,6 +119,17 @@ public class ProductService{
 
         productRepository.save(product);
 
+    }
+
+    @Transactional
+    public void updatePublishedStatus(UUID id, boolean isPublished) {
+
+        Product product = productRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFound(
+                        "Product with [" + id + "] not found"
+                ));
+
+        product.setPublished(isPublished);
     }
 
 }

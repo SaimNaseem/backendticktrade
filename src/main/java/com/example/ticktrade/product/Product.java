@@ -38,7 +38,7 @@ public class Product {
     private Instant updatedAt;
     private Instant deletedAt;
 
-    private Boolean isPublished=true;
+    private Boolean isPublished;
 
     public Product(){}
     public Product(
@@ -47,13 +47,16 @@ public class Product {
             String description,
             BigDecimal price,
             String imageUrl,
-            Integer stockLevel){
+            Integer stockLevel,
+            Boolean isPublished){
         this.id=id;
         this.name = name;
         this.description = description;
         this.price = price;
         this.imageUrl = imageUrl;
         this.stockLevel = stockLevel;
+        this.isPublished=isPublished;
+
     }
 
     @PrePersist

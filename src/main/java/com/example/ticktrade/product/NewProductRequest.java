@@ -28,6 +28,7 @@ public record NewProductRequest(
         @Min(value = 1, message = "Stocklevel must be greater than 1")
         Integer stockLevel,
 
-        String imageUrl){
+        String imageUrl,
+        Boolean isPublished){
 
 }
