@@ -17,6 +17,7 @@ public class CorsConfig {
                         .allowedOrigins(
                                 "http://localhost:3000",
                                 "https://full-stack-web-pi.vercel.app/"
+                                "https://full-stack-web-git-main-team-me-118d.vercel.app"
                         )
                         .allowedMethods(
                                 "GET",
