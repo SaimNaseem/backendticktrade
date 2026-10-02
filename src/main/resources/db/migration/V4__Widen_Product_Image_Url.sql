@@ -1,0 +1,2 @@
+ALTER TABLE product
+    ALTER COLUMN image_url TYPE VARCHAR(1024);

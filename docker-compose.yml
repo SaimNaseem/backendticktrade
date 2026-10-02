@@ -9,6 +9,12 @@ services:
       SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/jfs
       SPRING_DATASOURCE_USERNAME: postgres
       SPRING_DATASOURCE_PASSWORD: pass
+      AWS_REGION: ${AWS_REGION:-eu-central-1}
+      AWS_S3_BUCKET: ${AWS_S3_BUCKET:-ticktrade-product-images}
+      AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID:-}
+      AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY:-}
+      AWS_S3_ENDPOINT: ${AWS_S3_ENDPOINT:-}
+      APP_PUBLIC_BASE_URL: ${APP_PUBLIC_BASE_URL:-}
     ports:
       - "8082:8082"
     networks:
