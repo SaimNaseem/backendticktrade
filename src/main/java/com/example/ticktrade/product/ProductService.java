@@ -116,6 +116,11 @@ public class ProductService{
         if(newProductRequest.stockLevel()!=null && !newProductRequest.stockLevel().equals(product.getStockLevel())){
             product.setStockLevel(newProductRequest.stockLevel());
         }
+        if (newProductRequest.isPublished() != null
+                && !newProductRequest.isPublished().equals(product.getPublished())) {
+
+            product.setPublished(newProductRequest.isPublished());
+        }
 
         productRepository.save(product);
 
